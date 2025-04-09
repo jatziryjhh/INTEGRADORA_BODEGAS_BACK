@@ -1,6 +1,7 @@
 package mx.edu.utez.Backend.Bodegas.security.controller;
 
 import mx.edu.utez.Backend.Bodegas.security.dto.LoginDto;
+import mx.edu.utez.Backend.Bodegas.security.dto.LoginResponseDto;
 import mx.edu.utez.Backend.Bodegas.security.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,12 +19,12 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginDto loginDto) {
+    public ResponseEntity<LoginResponseDto> login(@RequestBody LoginDto loginDto) {
         try {
-            String token = authService.login(loginDto.getEmail(), loginDto.getPassword());
-            return ResponseEntity.ok(token);
+            LoginResponseDto response = authService.login(loginDto.getEmail(), loginDto.getPassword());
+            return ResponseEntity.ok(response);
         } catch (RuntimeException e) {
-            return ResponseEntity.status(401).body("Credenciales inválidas");
+            return ResponseEntity.status(401).build();
         }
     }
 }

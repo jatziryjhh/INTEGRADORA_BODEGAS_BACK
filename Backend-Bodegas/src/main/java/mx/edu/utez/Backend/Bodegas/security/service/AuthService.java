@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import mx.edu.utez.Backend.Bodegas.models.usuario.UsuarioBean;
 import mx.edu.utez.Backend.Bodegas.repositories.UsuarioRepository;
+import mx.edu.utez.Backend.Bodegas.security.dto.LoginResponseDto;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -23,7 +24,28 @@ public class AuthService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public String login(String email, String password) {
+    public LoginResponseDto login(String email, String password) {
+        Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(email, password)
+        );
+
+        if (authentication.isAuthenticated()) {
+            UsuarioBean usuario = usuarioRepository.findByEmail(email).get();
+
+            String token = JWT.create()
+                    .withSubject(email)
+                    .withClaim("role", usuario.getRol().name())
+                    .withIssuedAt(new Date())
+                    .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                    .sign(Algorithm.HMAC256(SECRET_KEY));
+
+            return new LoginResponseDto(token, usuario.getRol().name(), usuario.getId());
+        }
+
+        throw new RuntimeException("Credenciales inválidas");
+    }
+
+    /*public String login(String email, String password) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(email, password)
         );
@@ -39,6 +61,6 @@ public class AuthService {
         }
 
         throw new RuntimeException("Credenciales inválidas");
-    }
+    }*/
 
 }
