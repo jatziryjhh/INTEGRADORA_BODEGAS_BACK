@@ -32,7 +32,7 @@ public class BodegasService {
                 .map(bodegaExistente -> {
                     bodegaExistente.setTipo(nuevabodega.getTipo());
                     bodegaExistente.setPrecio(nuevabodega.getPrecio());
-                    bodegaExistente.setStaus(nuevabodega.getStaus());
+                    bodegaExistente.setStatus(nuevabodega.getStatus());
                     return bodegas_Repository.save(bodegaExistente);
                 });
     }
