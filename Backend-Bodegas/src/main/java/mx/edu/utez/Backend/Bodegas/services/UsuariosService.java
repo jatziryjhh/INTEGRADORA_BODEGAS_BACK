@@ -2,7 +2,10 @@ package mx.edu.utez.Backend.Bodegas.services;
 
 import mx.edu.utez.Backend.Bodegas.models.usuario.UsuarioBean;
 import mx.edu.utez.Backend.Bodegas.repositories.UsuarioRepository;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +17,9 @@ import java.util.regex.Pattern;
 public class UsuariosService {
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    private static final Logger logger = LogManager.getLogger(UsuariosService.class);
 
     //REGEX patterns
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$");
@@ -38,6 +44,8 @@ public class UsuariosService {
     public UsuarioBean crearUsuario(UsuarioBean usuario) {
         validarUsuario(usuario);
         usuario.setUuid(UUID.randomUUID().toString());
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+        logger.info("Nuevo usuario creado con UUID: {}", usuario.getUuid());
         return usuarioRepository.save(usuario);
     }
 
@@ -45,7 +53,12 @@ public class UsuariosService {
         return usuarioRepository.findById(id)
                 .map(usuarioExistente -> {
                     usuarioExistente.setEmail(nuevoUsuario.getEmail());
-                    usuarioExistente.setPassword(nuevoUsuario.getPassword());
+                    if (nuevoUsuario.getPassword() != null && !nuevoUsuario.getPassword().isEmpty()) {
+                        usuarioExistente.setPassword(passwordEncoder.encode(nuevoUsuario.getPassword()));
+                        logger.info("Contraseña actualizada para usuario con ID: {}", id);
+                    } else {
+                        logger.info("Contraseña no modificada para usuario con ID: {}", id);
+                    }
                     usuarioExistente.setRol(nuevoUsuario.getRol());
                     usuarioExistente.setNombre(nuevoUsuario.getNombre());
                     usuarioExistente.setApellidoMaterno(nuevoUsuario.getApellidoMaterno());
@@ -67,6 +80,7 @@ public class UsuariosService {
     }
     private void validarUsuario(UsuarioBean usuario){
         if(!EMAIL_PATTERN.matcher(usuario.getEmail()).matches()){
+            logger.warn("Correo inválido: {}", usuario.getEmail());
             throw new IllegalArgumentException("El correo electrónico no es válido");
         }
         if(!PASSWORD_PATTERN.matcher(usuario.getPassword()).matches()){
