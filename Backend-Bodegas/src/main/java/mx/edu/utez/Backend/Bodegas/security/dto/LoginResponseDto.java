@@ -10,7 +10,7 @@ public class LoginResponseDto {
         this.rol = rol;
         this.id = id;
     }
-
+    //Esto se puede borrar
     public String getToken() {
         return token;
     }
