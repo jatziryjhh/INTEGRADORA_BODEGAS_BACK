@@ -20,6 +20,9 @@ public class BodegasService {
     private static final Pattern FOLIO_PATTERN = Pattern.compile("^[A-Z0-9]{5,10}$");
     private static final Pattern PRECIO_PATTERN = Pattern.compile("^(?!\\s*$)\\d+(\\.\\d{1,2})?$");
     private static final Pattern STATUS_PATTERN = Pattern.compile("^(DISPONIBLE|OCUPADO)$", Pattern.CASE_INSENSITIVE);
+    private static final Pattern TAMANO_PATTERN = Pattern.compile("^(?! )[A-ZÁÉÍÓÚÑa-záéíóúñ]+(?: [A-ZÁÉÍÓÚÑa-záéíóúñ]+){0,49}$");
+    private static final Pattern EDIFICIO_PATTERN = Pattern.compile("^(?! )[A-ZÁÉÍÓÚÑa-záéíóúñ]+(?: [A-ZÁÉÍÓÚÑa-záéíóúñ]+){0,49}$");
+
 
     public List<BodegaBean> ObtenerTodas(){
         return bodegas_Repository.findAll();
@@ -65,6 +68,12 @@ public class BodegasService {
         }
         if(!STATUS_PATTERN.matcher(bodega.getStatus()).matches()){
             throw new IllegalArgumentException("El status de bodega no es válido");
+        }
+        if(!TAMANO_PATTERN.matcher(bodega.getTamano()).matches()){
+            throw new IllegalArgumentException("El tamaño de bodega no es válido");
+        }
+        if(!EDIFICIO_PATTERN.matcher(bodega.getEdificio()).matches()){
+            throw new IllegalArgumentException("El edificio de bodega no es válido");
         }
     }
 }

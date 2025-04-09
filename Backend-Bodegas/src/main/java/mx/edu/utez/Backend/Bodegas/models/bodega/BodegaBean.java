@@ -23,11 +23,14 @@ public class BodegaBean {
     Double precio;
     @Column(nullable = false)
     String status;
+    @Column(nullable = false)
+    String tamano;
+    @Column (nullable = false)
+    String edificio;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sede_id") // FK hacia SedeBean
     private SedeBean sede;
-
 
     public int getId() {
         return id;
@@ -75,6 +78,22 @@ public class BodegaBean {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getTamano() {
+        return tamano;
+    }
+
+    public void setTamano(String tamano) {
+        this.tamano = tamano;
+    }
+
+    public String getEdificio() {
+        return edificio;
+    }
+
+    public void setEdificio(String edificio) {
+        this.edificio = edificio;
     }
 
     public SedeBean getSede() {
