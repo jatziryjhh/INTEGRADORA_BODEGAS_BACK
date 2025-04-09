@@ -8,11 +8,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 @Service
 public class BodegasService {
     @Autowired
     private BodegasRepository bodegas_Repository;
+
+    //REGEX patterns
+    private static final Pattern TIPO_PATTERN = Pattern.compile("^[A-ZÁÉÍÓÚÑa-záéíóúñ ]{2,50}$");
+    private static final Pattern FOLIO_PATTERN = Pattern.compile("^[A-Z0-9]{5,10}$");
+    private static final Pattern PRECIO_PATTERN = Pattern.compile("^[0-9]+(\\.[0-9]{1,2})?$");
+    private static final Pattern STATUS_PATTERN = Pattern.compile("^(DISPONIBLE|OCUPADO)$");
 
     public List<BodegaBean> ObtenerTodas(){
         return bodegas_Repository.findAll();
@@ -23,6 +30,7 @@ public class BodegasService {
     }
 
     public BodegaBean CrearBodega(BodegaBean bodega){
+        validarBodega(bodega);
         bodega.setUuid(UUID.randomUUID().toString());
         return bodegas_Repository.save(bodega);
     }
@@ -45,4 +53,18 @@ public class BodegasService {
         return bodegas_Repository.findByUuid(uuid);
     }
 
+    public void validarBodega(BodegaBean bodega)    {
+        if(!TIPO_PATTERN.matcher(bodega.getTipo()).matches()){
+            throw new IllegalArgumentException("El tipo de bodega no es válido");
+        }
+        if(!FOLIO_PATTERN.matcher(bodega.getFolio()).matches()){
+            throw new IllegalArgumentException("El folio de bodega no es válido");
+        }
+        if(!PRECIO_PATTERN.matcher(String.valueOf(bodega.getPrecio())).matches()){
+            throw new IllegalArgumentException("El precio de bodega no es válido");
+        }
+        if(!STATUS_PATTERN.matcher(bodega.getStatus()).matches()){
+            throw new IllegalArgumentException("El status de bodega no es válido");
+        }
+    }
 }
