@@ -2,6 +2,7 @@ package mx.edu.utez.Backend.Bodegas.models.bodega;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import mx.edu.utez.Backend.Bodegas.models.pago.PagoBean;
 import mx.edu.utez.Backend.Bodegas.models.sede.SedeBean;
 
 @Entity
@@ -23,9 +24,10 @@ public class BodegaBean {
     @Column(nullable = false)
     String status;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sede_id") // FK hacia SedeBean
     private SedeBean sede;
+
 
     public int getId() {
         return id;

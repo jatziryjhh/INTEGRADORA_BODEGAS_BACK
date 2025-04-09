@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class PagoBean {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(unique = true, nullable = false, length = 36)
     private String uuid;
@@ -27,11 +27,12 @@ public class PagoBean {
     @Column(name = "fecha_pago", nullable = false)
     private LocalDate fechaPago;
 
-    public int getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

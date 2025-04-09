@@ -14,6 +14,10 @@ public class PagosService {
     @Autowired
     private PagoRepository pagoRepository;
 
+    //REGEX patterns
+    private static final String MONTO_PATTERN = "^[0-9]+(\\.[0-9]{1,2})?$";
+    private static final String FECHA_PATTERN = "^(\\d{4}-\\d{2}-\\d{2})$";
+
     public List<PagoBean> obtenerTodosLosPagos() {
         return pagoRepository.findAll();
     }
@@ -23,6 +27,7 @@ public class PagosService {
     }
 
     public PagoBean crearPago(PagoBean pago) {
+        validarPago(pago);
         pago.setUuid(UUID.randomUUID().toString());
         pago.setFechaPago(LocalDate.now());
         return pagoRepository.save(pago);
@@ -45,5 +50,12 @@ public class PagosService {
     public Optional<PagoBean> buscarPorUUID(String uuid) {
         return pagoRepository.findByUuid(uuid);
     }
-
+    public void validarPago(PagoBean pago) {
+        if (!pago.getMonto().toString().matches(MONTO_PATTERN)) {
+            throw new IllegalArgumentException("El monto no es válido");
+        }
+        if (!pago.getFechaPago().toString().matches(FECHA_PATTERN)) {
+            throw new IllegalArgumentException("La fecha no es válida");
+        }
+    }
 }

@@ -14,6 +14,10 @@ public class SedesService {
     @Autowired
     private SedeRepository sedeRepository;
 
+    //regex
+    private static final String NOMBRE_REGEX = "^[a-zA-Z0-9\\s]+$";
+    private static final String DIRECCION_REGEX = "^[a-zA-Z0-9\\s,.-áéíóúÁÉÍÓÚñÑ]+$";
+
     public List<SedeBean> obtenerTodasLasSedes() {
         return sedeRepository.findAll();
     }
@@ -23,6 +27,7 @@ public class SedesService {
     }
 
     public SedeBean crearSede(SedeBean sede) {
+        validarSede(sede);
         sede.setUuid(UUID.randomUUID().toString());
         return sedeRepository.save(sede);
     }
@@ -42,5 +47,14 @@ public class SedesService {
 
     public Optional<SedeBean> buscarPorUUID(String uuid) {
         return sedeRepository.findByUuid(uuid);
+    }
+
+    public void validarSede(SedeBean sede) {
+        if (sede.getNombre() == null || sede.getNombre().isEmpty() || !sede.getNombre().matches(NOMBRE_REGEX)) {
+            throw new IllegalArgumentException("El nombre de la sede es inválido.");
+        }
+        if (sede.getDireccion() == null || sede.getDireccion().isEmpty() || !sede.getDireccion().matches(DIRECCION_REGEX)) {
+            throw new IllegalArgumentException("La dirección de la sede es inválida.");
+        }
     }
 }
