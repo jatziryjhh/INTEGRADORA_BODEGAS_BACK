@@ -20,8 +20,7 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginDto loginDto) {
         try {
-            // Usamos un rol mockeado por ahora, puedes obtenerlo de la base de datos o del objeto Usuario
-            String token = authService.login(loginDto.getUsername(), loginDto.getPassword(), "USER_ROLE");
+            String token = authService.login(loginDto.getEmail(), loginDto.getPassword());
             return ResponseEntity.ok(token);
         } catch (RuntimeException e) {
             return ResponseEntity.status(401).body("Credenciales inválidas");
