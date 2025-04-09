@@ -17,9 +17,11 @@ public class BodegaBean {
     @Column(nullable = false)
     String tipo;
     @Column(nullable = false)
+    String folio;
+    @Column(nullable = false)
     Double precio;
     @Column(nullable = false)
-    String staus;
+    String status;
 
     @ManyToOne
     @JoinColumn(name = "sede_id") // FK hacia SedeBean
@@ -49,6 +51,14 @@ public class BodegaBean {
         this.tipo = tipo;
     }
 
+    public String getFolio() {
+        return folio;
+    }
+
+    public void setFolio(String folio) {
+        this.folio = folio;
+    }
+
     public Double getPrecio() {
         return precio;
     }
@@ -57,12 +67,12 @@ public class BodegaBean {
         this.precio = precio;
     }
 
-    public String getStaus() {
-        return staus;
+    public String getStatus() {
+        return status;
     }
 
-    public void setStaus(String staus) {
-        this.staus = staus;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public SedeBean getSede() {

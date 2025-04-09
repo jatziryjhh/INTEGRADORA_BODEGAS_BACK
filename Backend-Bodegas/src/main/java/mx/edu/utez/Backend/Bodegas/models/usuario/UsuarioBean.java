@@ -17,6 +17,27 @@ public class UsuarioBean {
     private String email;
 
     @Column(nullable = false)
+    private String nombre;
+
+    @Column(nullable = false)
+    private String apellidoMaterno;
+
+    @Column(nullable = false)
+    private String apellidoPaterno;
+
+    @Column(nullable = false)
+    private String telefono;
+
+    @Column(nullable = false)
+    private String rfc;
+
+    @Column(nullable = false)
+    private String direccion;
+
+    @Column(nullable = false)
+    private String codigopos;
+
+    @Column(nullable = false)
     private String password;
 
     @Enumerated(EnumType.STRING)
