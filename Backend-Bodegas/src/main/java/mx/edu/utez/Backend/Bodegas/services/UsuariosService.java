@@ -16,16 +16,16 @@ public class UsuariosService {
     private UsuarioRepository usuarioRepository;
 
     //REGEX patterns
-    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$");
-    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$");
-    private static final Pattern TELEFONO_PATTERN = Pattern.compile("^[0-9]{10}$");
-    private static final Pattern RFC_PATTERN = Pattern.compile("^[A-ZÑ&]{3,4}\\d{6}[A-Z\\d]{3}$");
-    private static final Pattern CODIGOPOS_PATTERN = Pattern.compile("^[0-9]{5}$");
-    private static final Pattern NOMBRE_PATTERN = Pattern.compile("^[A-ZÁÉÍÓÚÑa-záéíóúñ ]{2,50}$");
-    private static final Pattern APELLIDOPATERNO_PATTERN = Pattern.compile("^[A-ZÁÉÍÓÚÑa-záéíóúñ ]{2,50}$");
-    private static final Pattern APELLIDOMATERNO_PATTERN = Pattern.compile("^[A-ZÁÉÍÓÚÑa-záéíóúñ ]{2,50}$");
-    private static final Pattern DIRECCION_PATTERN = Pattern.compile("^[A-ZÁÉÍÓÚÑa-záéíóúñ0-9 #.,-]{5,100}$");
-    private static final Pattern ROL_PATTERN = Pattern.compile("^(SUPERADMINISTRADOR|ADMINISTRADOR|CLIENTE)$");
+    private static final Pattern EMAIL_PATTERN = Pattern.compile("^(?!\\s*$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    private static final Pattern PASSWORD_PATTERN = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+    private static final Pattern TELEFONO_PATTERN = Pattern.compile("^(?!\\s*$)\\d{10}$");
+    private static final Pattern RFC_PATTERN = Pattern.compile("^(?!\\s*$)[A-ZÑ&]{3,4}\\d{6}[A-Z\\d]{3}$");
+    private static final Pattern CODIGOPOS_PATTERN = Pattern.compile("^(?!\\s*$)\\d{5}$");
+    private static final Pattern NOMBRE_PATTERN = Pattern.compile("^(?!\\s*$)(?=.{2,50}$)[A-ZÁÉÍÓÚÑa-záéíóúñ]+(?: [A-ZÁÉÍÓÚÑa-záéíóúñ]+)*$");
+    private static final Pattern APELLIDOPATERNO_PATTERN = Pattern.compile("^(?!\\s*$)(?=.{2,50}$)[A-ZÁÉÍÓÚÑa-záéíóúñ]+(?: [A-ZÁÉÍÓÚÑa-záéíóúñ]+)*$");
+    private static final Pattern APELLIDOMATERNO_PATTERN = Pattern.compile("^(?!\\s*$)(?=.{2,50}$)[A-ZÁÉÍÓÚÑa-záéíóúñ]+(?: [A-ZÁÉÍÓÚÑa-záéíóúñ]+)*$");
+    private static final Pattern DIRECCION_PATTERN = Pattern.compile("^(?!\\s*$)(?=.{5,100}$)[A-ZÁÉÍÓÚÑa-záéíóúñ0-9#.,\\-]+(?: [A-ZÁÉÍÓÚÑa-záéíóúñ0-9#.,\\-]+)*$");
+    private static final Pattern ROL_PATTERN = Pattern.compile("^(SUPERADMINISTRADOR|ADMINISTRADOR|CLIENTE)$", Pattern.CASE_INSENSITIVE);
 
     public List<UsuarioBean> obtenerTodosLosUsuarios() {
         return usuarioRepository.findAll();

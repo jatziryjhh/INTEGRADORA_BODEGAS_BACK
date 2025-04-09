@@ -15,8 +15,10 @@ public class SedesService {
     private SedeRepository sedeRepository;
 
     //regex
-    private static final String NOMBRE_REGEX = "^[a-zA-Z0-9\\s]+$";
-    private static final String DIRECCION_REGEX = "^[a-zA-Z0-9\\s,.-áéíóúÁÉÍÓÚñÑ]+$";
+    private static final String NOMBRE_REGEX = "^(?!\\s*$)[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+(?: [a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+)*$"
+            ;
+    private static final String DIRECCION_REGEX = "^(?!\\s*$)[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ.,\\-]+(?: [a-zA-Z0-9áéíóúÁÉÍÓÚñÑ.,\\-]+)*$";
+    private static final String ADMINISTRADOR_REGEX = "^(?!\\s*$)[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+(?: [a-zA-Z0-9áéíóúÁÉÍÓÚñÑ]+)*$";
 
     public List<SedeBean> obtenerTodasLasSedes() {
         return sedeRepository.findAll();
@@ -55,6 +57,9 @@ public class SedesService {
         }
         if (sede.getDireccion() == null || sede.getDireccion().isEmpty() || !sede.getDireccion().matches(DIRECCION_REGEX)) {
             throw new IllegalArgumentException("La dirección de la sede es inválida.");
+        }
+        if (sede.getAdministrador() == null || sede.getAdministrador().isEmpty() || !sede.getAdministrador().matches(ADMINISTRADOR_REGEX)) {
+            throw new IllegalArgumentException("El administrador de la sede es inválido.");
         }
     }
 }

@@ -23,6 +23,9 @@ public class SedeBean {
     @Column(nullable = false)
     private String direccion;
 
+    @Column(nullable = false)
+    private String administrador;
+
     @OneToMany(mappedBy = "sede") // Aquí Hibernate buscará el campo "sede" en BodegaBean
     private List<BodegaBean> bodegas;
 
@@ -56,6 +59,14 @@ public class SedeBean {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public String getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(String administrador) {
+        this.administrador = administrador;
     }
 
     public List<BodegaBean> getBodegas() {

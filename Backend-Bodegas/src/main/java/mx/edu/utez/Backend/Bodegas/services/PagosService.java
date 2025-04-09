@@ -15,8 +15,10 @@ public class PagosService {
     private PagoRepository pagoRepository;
 
     //REGEX patterns
-    private static final String MONTO_PATTERN = "^[0-9]+(\\.[0-9]{1,2})?$";
-    private static final String FECHA_PATTERN = "^(\\d{4}-\\d{2}-\\d{2})$";
+    private static final String MONTO_PATTERN = "^(?!\\s*$)\\d+(\\.\\d{1,2})?$"
+            ;
+    private static final String FECHA_PATTERN = "^(?!\\s*$)\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$"
+            ;
 
     public List<PagoBean> obtenerTodosLosPagos() {
         return pagoRepository.findAll();
