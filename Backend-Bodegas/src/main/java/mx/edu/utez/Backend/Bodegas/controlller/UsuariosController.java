@@ -28,6 +28,12 @@ public class UsuariosController {
         return usuario.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("rol/{rol}")
+    public ResponseEntity<UsuarioBean> buscarPorRol(@PathVariable String rol) {
+        Optional<UsuarioBean> usuario = usuarioService.BuscarRol(rol);
+        return usuario.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
     @GetMapping("uuid/{uuid}")
     public ResponseEntity<UsuarioBean> buscarPorUUID(@PathVariable String uuid) {
         Optional<UsuarioBean> usuario = usuarioService.buscarPorUUID(uuid);

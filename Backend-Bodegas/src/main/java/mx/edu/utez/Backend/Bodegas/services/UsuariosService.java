@@ -97,4 +97,8 @@ public class UsuariosService {
             throw new IllegalArgumentException("El rol no es válido");
         }
     }
+
+    public Optional<UsuarioBean> BuscarRol(String rol) {
+        return usuarioRepository.findByRol(rol);
+    }
 }
