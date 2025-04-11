@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/sedes/")
-@CrossOrigin("*")
 public class SedesController {
     @Autowired
     private SedesService sedeService;
