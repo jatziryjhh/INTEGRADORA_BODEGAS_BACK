@@ -7,19 +7,14 @@ import mx.edu.utez.Backend.Bodegas.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BitacoraService {
     @Autowired
     private BitacoraRepository bitacoraRepository;
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-
-    public void guardarActividad(Long usuarioId, String rol, String accion, String endpoint) {
-        UsuarioBean usuario = usuarioRepository.findById(usuarioId).orElse(null);
-        String nombre = (usuario != null) ? usuario.getNombre() : "Desconocido";
-
-        //BitacoraBean actividad = new BitacoraBean(usuarioId, rol, nombre, accion, endpoint);
-        //bitacoraRepository.save(actividad);
+    public List<BitacoraBean> ObtenerBitacora(){
+        return bitacoraRepository.findAll();
     }
 }
