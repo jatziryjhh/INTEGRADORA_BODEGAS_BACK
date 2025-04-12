@@ -67,6 +67,7 @@ public class UsuariosService {
                     usuarioExistente.setRfc(nuevoUsuario.getRfc());
                     usuarioExistente.setDireccion(nuevoUsuario.getDireccion());
                     usuarioExistente.setCodigopos(nuevoUsuario.getCodigopos());
+                    usuarioExistente.setStatus(nuevoUsuario.getStatus());
                     return usuarioRepository.save(usuarioExistente);
                 });
     }

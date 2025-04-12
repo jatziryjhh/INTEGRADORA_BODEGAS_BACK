@@ -40,6 +40,9 @@ public class UsuarioBean {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
+    private Boolean status = true;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role rol;
@@ -138,5 +141,13 @@ public class UsuarioBean {
 
     public void setRol(Role rol) {
         this.rol = rol;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 }

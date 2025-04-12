@@ -38,7 +38,9 @@ public class SedesService {
         return sedeRepository.findById(id)
                 .map(sedeExistente -> {
                     sedeExistente.setNombre(nuevaSede.getNombre());
-                    sedeExistente.setBodegas(nuevaSede.getBodegas());
+                    sedeExistente.setDireccion(nuevaSede.getDireccion());
+                    sedeExistente.setAdministrador(nuevaSede.getAdministrador());
+                    sedeExistente.setStatus(nuevaSede.getStatus());
                     return sedeRepository.save(sedeExistente);
                 });
     }

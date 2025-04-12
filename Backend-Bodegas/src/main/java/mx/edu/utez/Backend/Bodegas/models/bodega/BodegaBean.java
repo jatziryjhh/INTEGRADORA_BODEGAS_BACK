@@ -14,19 +14,19 @@ public class BodegaBean {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @Column(unique = true, length = 36)
-    String uuid;
+    private String uuid;
     @Column(nullable = false)
-    String tipo;
+    private String tipo;
     @Column(nullable = false)
-    String folio;
+    private String folio;
     @Column(nullable = false)
-    Double precio;
+    private Double precio;
     @Column(nullable = false)
-    String status;
+    private String status = "true";
     @Column(nullable = false)
-    String tamano;
+    private String tamano;
     @Column (nullable = false)
-    String edificio;
+    private String edificio;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sede_id") // FK hacia SedeBean
