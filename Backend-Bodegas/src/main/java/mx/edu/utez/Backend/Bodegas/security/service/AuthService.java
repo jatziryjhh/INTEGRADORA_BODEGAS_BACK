@@ -34,6 +34,7 @@ public class AuthService {
 
             String token = JWT.create()
                     .withSubject(email)
+                    .withClaim("id", usuario.getId())
                     .withClaim("role", usuario.getRol().name())
                     .withIssuedAt(new Date())
                     .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))

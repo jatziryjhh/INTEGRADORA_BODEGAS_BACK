@@ -3,6 +3,7 @@ package mx.edu.utez.Backend.Bodegas.security.jwt;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,7 +18,7 @@ import java.io.IOException;
 import java.util.Collections;
 @Component
 public class JwtAuthFilter extends OncePerRequestFilter {
-    private final String SECRET_KEY = "MI_CLAVE_SECRETA_123"; //Usa algo más seguro en producción
+    private final String SECRET_KEY = "MI_CLAVE_SECRETA_123";
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
@@ -49,4 +50,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         filterChain.doFilter(request, response);
     }
+
+    public DecodedJWT decodeToken(String token) {
+        return JWT.require(Algorithm.HMAC256(SECRET_KEY)).build().verify(token);
+    }
+
 }
