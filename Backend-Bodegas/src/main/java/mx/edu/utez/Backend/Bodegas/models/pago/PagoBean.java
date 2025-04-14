@@ -1,5 +1,6 @@
 package mx.edu.utez.Backend.Bodegas.models.pago;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import mx.edu.utez.Backend.Bodegas.models.bodega.BodegaBean;
@@ -17,8 +18,9 @@ public class PagoBean {
     @Column(unique = true, nullable = false, length = 36)
     private String uuid;
 
-    @ManyToOne
-    @JoinColumn(name = "bodega_id", nullable = true)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "bodega_id", nullable = false)
+    @JsonIgnoreProperties("pagos")
     private BodegaBean bodega;
 
     @Column(nullable = false)

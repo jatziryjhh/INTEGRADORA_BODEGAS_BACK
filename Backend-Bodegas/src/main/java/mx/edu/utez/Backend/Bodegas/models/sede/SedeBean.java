@@ -1,5 +1,6 @@
 package mx.edu.utez.Backend.Bodegas.models.sede;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -30,8 +31,8 @@ public class SedeBean {
     @Column(nullable = false)
     private Boolean status = true;
 
-    @OneToMany(mappedBy = "sede") // Aquí Hibernate buscará el campo "sede" en BodegaBean
-    @JsonManagedReference
+    @OneToMany(mappedBy = "sede",cascade = CascadeType.ALL) // Aquí Hibernate buscará el campo "sede" en BodegaBean
+    @JsonIgnoreProperties("sede")
     private List<BodegaBean> bodegas;
 
     public int getId() {

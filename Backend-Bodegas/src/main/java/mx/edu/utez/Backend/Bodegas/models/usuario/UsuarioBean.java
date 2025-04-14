@@ -1,5 +1,6 @@
 package mx.edu.utez.Backend.Bodegas.models.usuario;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import mx.edu.utez.Backend.Bodegas.models.bodega.BodegaBean;
@@ -51,7 +52,8 @@ public class UsuarioBean {
     @Column(nullable = false)
     private Role rol;
 
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("cliente")
     private List<BodegaBean> bodegas;
 
     public int getId() {

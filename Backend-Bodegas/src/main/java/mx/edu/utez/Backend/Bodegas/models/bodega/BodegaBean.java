@@ -7,6 +7,8 @@ import mx.edu.utez.Backend.Bodegas.models.pago.PagoBean;
 import mx.edu.utez.Backend.Bodegas.models.sede.SedeBean;
 import mx.edu.utez.Backend.Bodegas.models.usuario.UsuarioBean;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "bodegas")
@@ -31,13 +33,18 @@ public class BodegaBean {
     private String edificio;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "sede_id") // FK hacia SedeBean
+    @JoinColumn(name = "sede_id",nullable = false) // FK hacia SedeBean
     @JsonIgnoreProperties("bodegas")
     private SedeBean sede;
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_id")
+    @ManyToOne (fetch = FetchType.EAGER)
+    @JoinColumn(name = "cliente_id",nullable = false)
+    @JsonIgnoreProperties("bodegas")
     private UsuarioBean cliente;
+
+    @OneToMany(mappedBy = "bodega",cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("bodega")
+    private List<PagoBean> pagos;
 
     public int getId() {
         return id;
