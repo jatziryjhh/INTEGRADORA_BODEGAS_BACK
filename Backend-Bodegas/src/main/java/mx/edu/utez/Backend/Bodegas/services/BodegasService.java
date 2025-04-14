@@ -37,13 +37,8 @@ public class BodegasService {
         return bodegas_Repository.findById(id);
     }
 
-    public BodegaBean CrearBodega(BodegaBean bodega, Long idCliente) {
+    public BodegaBean CrearBodega(BodegaBean bodega) {
         validarBodega(bodega);
-
-        Optional<UsuarioBean> cliente = usuarioRepository.findById(idCliente);
-        if (!cliente.isPresent()) {
-            throw new IllegalArgumentException("Cliente no encontrado");}
-        bodega.setCliente(cliente.get());
         bodega.setUuid(UUID.randomUUID().toString());
         return bodegas_Repository.save(bodega);
     }

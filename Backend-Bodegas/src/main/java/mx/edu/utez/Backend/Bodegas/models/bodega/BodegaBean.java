@@ -38,7 +38,7 @@ public class BodegaBean {
     private SedeBean sede;
 
     @ManyToOne (fetch = FetchType.EAGER)
-    @JoinColumn(name = "cliente_id",nullable = false)
+    @JoinColumn(name = "cliente_id",nullable = true)
     @JsonIgnoreProperties("bodegas")
     private UsuarioBean cliente;
 

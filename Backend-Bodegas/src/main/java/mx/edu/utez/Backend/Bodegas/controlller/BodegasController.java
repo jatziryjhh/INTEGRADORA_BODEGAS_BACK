@@ -38,18 +38,9 @@ public class BodegasController {
     }
 
     @PostMapping("crear/")
-    public ResponseEntity<BodegaBean> crearBodega(@RequestBody BodegaBean bodega) {
-        int cliente_id = bodega.getCliente().getId();
-        if (cliente_id != 0) {
-            Optional<UsuarioBean> cliente = usuarioRepository.findById((long) cliente_id);
-            if (cliente.isPresent()) {
-                BodegaBean nuevaBodega = bodegas_services.CrearBodega(bodega, cliente.get().getId());
-                return ResponseEntity.ok(nuevaBodega);
-            } else {
-                return ResponseEntity.badRequest().body(null); // Si no existe el cliente
-            }
-        }
-        return ResponseEntity.badRequest().body(null); // Si no viene el cliente_id o es null
+    public ResponseEntity<BodegaBean> crearBodega(@RequestBody BodegaBean bodegaBean) {
+        BodegaBean nuevoBodega = bodegas_services.CrearBodega(bodegaBean);
+        return ResponseEntity.status(201).body(nuevoBodega);
     }
 
     @PutMapping("/{id}")
