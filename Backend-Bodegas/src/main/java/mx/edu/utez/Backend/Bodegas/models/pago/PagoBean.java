@@ -30,6 +30,8 @@ public class PagoBean {
     @Column(name = "fecha_pago", nullable = false)
     private LocalDate fechaPago;
 
+    @Column(name = "status", nullable = false)
+    private String status;
 
     public Long getId() {
         return id;
@@ -73,5 +75,13 @@ public class PagoBean {
 
     public SedeBean getCliente() {
         return bodega.getSede();
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

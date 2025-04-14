@@ -15,10 +15,8 @@ public class PagosService {
     private PagoRepository pagoRepository;
 
     //REGEX patterns
-    private static final String MONTO_PATTERN = "^(?!\\s*$)\\d+(\\.\\d{1,2})?$"
-            ;
-    private static final String FECHA_PATTERN = "^(?!\\s*$)\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$"
-            ;
+    private static final String MONTO_PATTERN = "^(?!\\s*$)\\d+(\\.\\d{1,2})?$";
+    private static final String FECHA_PATTERN = "^(?!\\s*$)\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$";
 
     public List<PagoBean> obtenerTodosLosPagos() {
         return pagoRepository.findAll();
@@ -52,11 +50,14 @@ public class PagosService {
     public Optional<PagoBean> buscarPorUUID(String uuid) {
         return pagoRepository.findByUuid(uuid);
     }
+
     public void validarPago(PagoBean pago) {
-        if (!pago.getMonto().toString().matches(MONTO_PATTERN)) {
+        if (pago.getMonto() == null || !pago.getMonto().toString().matches(MONTO_PATTERN)) {
             throw new IllegalArgumentException("El monto no es válido");
         }
-        if (!pago.getFechaPago().toString().matches(FECHA_PATTERN)) {
+
+        // Solo validamos la fecha si ya fue seteada antes (como al actualizar un pago)
+        if (pago.getFechaPago() != null && !pago.getFechaPago().toString().matches(FECHA_PATTERN)) {
             throw new IllegalArgumentException("La fecha no es válida");
         }
     }
