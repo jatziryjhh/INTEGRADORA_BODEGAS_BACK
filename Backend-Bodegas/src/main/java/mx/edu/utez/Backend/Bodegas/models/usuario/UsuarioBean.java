@@ -2,6 +2,10 @@ package mx.edu.utez.Backend.Bodegas.models.usuario;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import mx.edu.utez.Backend.Bodegas.models.bodega.BodegaBean;
+
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "usuarios")
@@ -46,6 +50,9 @@ public class UsuarioBean {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role rol;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<BodegaBean> bodegas;
 
     public int getId() {
         return id;
@@ -121,6 +128,14 @@ public class UsuarioBean {
 
     public String getCodigopos() {
         return codigopos;
+    }
+
+    public List<BodegaBean> getBodegas() {
+        return bodegas;
+    }
+
+    public void setBodegas(List<BodegaBean> bodegas) {
+        this.bodegas = bodegas;
     }
 
     public void setCodigopos(String codigopos) {

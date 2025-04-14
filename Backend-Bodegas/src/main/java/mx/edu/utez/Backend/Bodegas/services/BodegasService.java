@@ -2,6 +2,7 @@ package mx.edu.utez.Backend.Bodegas.services;
 
 import mx.edu.utez.Backend.Bodegas.models.bodega.BodegaBean;
 import mx.edu.utez.Backend.Bodegas.repositories.BodegasRepository;
+import mx.edu.utez.Backend.Bodegas.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,6 +58,10 @@ public class BodegasService {
 
     public Optional<BodegaBean> BuscarPorUUID(String uuid){
         return bodegas_Repository.findByUuid(uuid);
+    }
+
+    public List<BodegaBean> obtenerPorCliente(Long idCliente) {
+        return bodegas_Repository.findByCliente_Id(idCliente);
     }
 
     public void validarBodega(BodegaBean bodega)    {

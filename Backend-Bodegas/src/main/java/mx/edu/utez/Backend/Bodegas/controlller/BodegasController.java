@@ -56,4 +56,10 @@ public class BodegasController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/cliente/{id}")
+    public ResponseEntity<List<BodegaBean>> obtenerBodegasPorCliente(@PathVariable Long id) {
+        List<BodegaBean> bodegas = bodegas_services.obtenerPorCliente(id);
+        return ResponseEntity.ok(bodegas);
+    }
 }

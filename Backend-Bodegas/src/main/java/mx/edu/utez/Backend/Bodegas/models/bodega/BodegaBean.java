@@ -1,9 +1,11 @@
 package mx.edu.utez.Backend.Bodegas.models.bodega;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import mx.edu.utez.Backend.Bodegas.models.pago.PagoBean;
 import mx.edu.utez.Backend.Bodegas.models.sede.SedeBean;
+import mx.edu.utez.Backend.Bodegas.models.usuario.UsuarioBean;
 
 @Entity
 @Data
@@ -22,7 +24,7 @@ public class BodegaBean {
     @Column(nullable = false)
     private Double precio;
     @Column(nullable = false)
-    private String status = "true";
+    private String status;
     @Column(nullable = false)
     private String tamano;
     @Column (nullable = false)
@@ -30,7 +32,12 @@ public class BodegaBean {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "sede_id") // FK hacia SedeBean
+    @JsonIgnoreProperties("bodegas")
     private SedeBean sede;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private UsuarioBean cliente;
 
     public int getId() {
         return id;
