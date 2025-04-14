@@ -1,6 +1,7 @@
 package mx.edu.utez.Backend.Bodegas.services;
 
 import mx.edu.utez.Backend.Bodegas.models.bodega.BodegaBean;
+import mx.edu.utez.Backend.Bodegas.models.usuario.UsuarioBean;
 import mx.edu.utez.Backend.Bodegas.repositories.BodegasRepository;
 import mx.edu.utez.Backend.Bodegas.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ import java.util.regex.Pattern;
 public class BodegasService {
     @Autowired
     private BodegasRepository bodegas_Repository;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     //REGEX patterns
     private static final Pattern TIPO_PATTERN = Pattern.compile("^(?! )[A-ZÁÉÍÓÚÑa-záéíóúñ]+(?: [A-ZÁÉÍÓÚÑa-záéíóúñ]+){0,49}$");
@@ -33,8 +37,13 @@ public class BodegasService {
         return bodegas_Repository.findById(id);
     }
 
-    public BodegaBean CrearBodega(BodegaBean bodega){
+    public BodegaBean CrearBodega(BodegaBean bodega, Long idCliente) {
         validarBodega(bodega);
+
+        Optional<UsuarioBean> cliente = usuarioRepository.findById(idCliente);
+        if (!cliente.isPresent()) {
+            throw new IllegalArgumentException("Cliente no encontrado");}
+        bodega.setCliente(cliente.get());
         bodega.setUuid(UUID.randomUUID().toString());
         return bodegas_Repository.save(bodega);
     }

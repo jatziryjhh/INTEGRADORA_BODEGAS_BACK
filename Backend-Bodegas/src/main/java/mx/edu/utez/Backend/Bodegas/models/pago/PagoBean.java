@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 import mx.edu.utez.Backend.Bodegas.models.bodega.BodegaBean;
+import mx.edu.utez.Backend.Bodegas.models.sede.SedeBean;
 
 import java.time.LocalDate;
 @Entity
@@ -68,5 +69,9 @@ public class PagoBean {
 
     public void setFechaPago(LocalDate fechaPago) {
         this.fechaPago = fechaPago;
+    }
+
+    public SedeBean getCliente() {
+        return bodega.getSede();
     }
 }

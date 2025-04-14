@@ -81,7 +81,12 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.18.3</version>
         </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>com.stripe</groupId>
+			<artifactId>stripe-java</artifactId>
+			<version>28.3.0</version>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>

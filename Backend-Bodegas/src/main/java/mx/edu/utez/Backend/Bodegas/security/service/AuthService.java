@@ -40,7 +40,7 @@ public class AuthService {
                     .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                     .sign(Algorithm.HMAC256(SECRET_KEY));
 
-            return new LoginResponseDto(token, usuario.getRol().name(), usuario.getId());
+            return new LoginResponseDto(token, usuario.getRol().name(), (int) usuario.getId());
         }
 
         throw new RuntimeException("Credenciales inválidas");

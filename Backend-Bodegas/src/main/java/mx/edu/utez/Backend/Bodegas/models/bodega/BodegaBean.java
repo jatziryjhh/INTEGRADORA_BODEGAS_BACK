@@ -117,4 +117,20 @@ public class BodegaBean {
     public void setSede(SedeBean sede) {
         this.sede = sede;
     }
+
+    public UsuarioBean getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(UsuarioBean cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<PagoBean> getPagos() {
+        return pagos;
+    }
+
+    public void setPagos(List<PagoBean> pagos) {
+        this.pagos = pagos;
+    }
 }

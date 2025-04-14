@@ -56,7 +56,7 @@ public class UsuarioBean {
     @JsonIgnoreProperties("cliente")
     private List<BodegaBean> bodegas;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

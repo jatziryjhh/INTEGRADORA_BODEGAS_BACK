@@ -1,6 +1,8 @@
 package mx.edu.utez.Backend.Bodegas.controlller;
 
 import mx.edu.utez.Backend.Bodegas.models.bodega.BodegaBean;
+import mx.edu.utez.Backend.Bodegas.models.usuario.UsuarioBean;
+import mx.edu.utez.Backend.Bodegas.repositories.UsuarioRepository;
 import mx.edu.utez.Backend.Bodegas.services.BodegasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,9 @@ import java.util.Optional;
 public class BodegasController {
     @Autowired
     private BodegasService bodegas_services;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     @GetMapping
     public List<BodegaBean> ObtenerBodegas(){
@@ -34,8 +39,17 @@ public class BodegasController {
 
     @PostMapping("crear/")
     public ResponseEntity<BodegaBean> crearBodega(@RequestBody BodegaBean bodega) {
-        BodegaBean NuevaBodega = bodegas_services.CrearBodega(bodega);
-        return ResponseEntity.status(201).body(NuevaBodega);
+        int cliente_id = bodega.getCliente().getId();
+        if (cliente_id != 0) {
+            Optional<UsuarioBean> cliente = usuarioRepository.findById((long) cliente_id);
+            if (cliente.isPresent()) {
+                BodegaBean nuevaBodega = bodegas_services.CrearBodega(bodega, cliente.get().getId());
+                return ResponseEntity.ok(nuevaBodega);
+            } else {
+                return ResponseEntity.badRequest().body(null); // Si no existe el cliente
+            }
+        }
+        return ResponseEntity.badRequest().body(null); // Si no viene el cliente_id o es null
     }
 
     @PutMapping("/{id}")
