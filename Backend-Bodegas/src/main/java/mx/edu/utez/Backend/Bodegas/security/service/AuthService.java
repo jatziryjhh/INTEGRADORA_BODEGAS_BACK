@@ -36,32 +36,14 @@ public class AuthService {
                     .withSubject(email)
                     .withClaim("id", usuario.getId())
                     .withClaim("role", usuario.getRol().name())
+                    .withClaim("status", usuario.getStatus())
                     .withIssuedAt(new Date())
                     .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                     .sign(Algorithm.HMAC256(SECRET_KEY));
 
-            return new LoginResponseDto(token, usuario.getRol().name(), (int) usuario.getId());
+            return new LoginResponseDto(token, usuario.getRol().name(), (int) usuario.getId(), usuario.getStatus());
         }
 
         throw new RuntimeException("Credenciales inválidas");
     }
-
-    /*public String login(String email, String password) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(email, password)
-        );
-
-        if (authentication.isAuthenticated()) {
-            UsuarioBean usuario = usuarioRepository.findByEmail(email).get();
-            return JWT.create()
-                    .withSubject(email)
-                    .withClaim("role", usuario.getRol().name())
-                    .withIssuedAt(new Date())
-                    .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                    .sign(Algorithm.HMAC256(SECRET_KEY));
-        }
-
-        throw new RuntimeException("Credenciales inválidas");
-    }*/
-
 }

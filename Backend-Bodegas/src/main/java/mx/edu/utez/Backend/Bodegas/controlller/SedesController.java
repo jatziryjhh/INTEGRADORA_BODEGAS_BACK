@@ -39,9 +39,9 @@ public class SedesController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Optional<SedeBean>> actualizarSede(@PathVariable Long id, @RequestBody SedeBean nuevaSede) {
+    public ResponseEntity<SedeBean> actualizarSede(@PathVariable Long id, @RequestBody SedeBean nuevaSede) {
         Optional<SedeBean> sedeActualizada = sedeService.actualizarSede(id, nuevaSede);
-        return ResponseEntity.ok(sedeActualizada);
+        return sedeActualizada.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")

@@ -35,6 +35,7 @@ public class SedesService {
     }
 
     public Optional<SedeBean> actualizarSede(Long id, SedeBean nuevaSede) {
+        //validarSede(nuevaSede);
         return sedeRepository.findById(id)
                 .map(sedeExistente -> {
                     sedeExistente.setNombre(nuevaSede.getNombre());
