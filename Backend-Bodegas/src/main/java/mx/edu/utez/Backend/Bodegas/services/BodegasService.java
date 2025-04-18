@@ -52,7 +52,7 @@ public class BodegasService {
                     bodegaExistente.setStatus(nuevabodega.getStatus());
                     bodegaExistente.setTamano(nuevabodega.getTamano());
                     bodegaExistente.setEdificio(nuevabodega.getEdificio());
-                    
+                    bodegaExistente.setCliente(nuevabodega.getCliente());
                     return bodegas_Repository.save(bodegaExistente);
                 });
     }
