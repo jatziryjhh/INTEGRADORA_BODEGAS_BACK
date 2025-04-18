@@ -55,7 +55,6 @@ public class PagosService {
         if (pago.getMonto() == null || !pago.getMonto().toString().matches(MONTO_PATTERN)) {
             throw new IllegalArgumentException("El monto no es válido");
         }
-
         // Solo validamos la fecha si ya fue seteada antes (como al actualizar un pago)
         if (pago.getFechaPago() != null && !pago.getFechaPago().toString().matches(FECHA_PATTERN)) {
             throw new IllegalArgumentException("La fecha no es válida");

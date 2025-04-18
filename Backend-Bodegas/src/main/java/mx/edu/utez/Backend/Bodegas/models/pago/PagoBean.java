@@ -73,10 +73,6 @@ public class PagoBean {
         this.fechaPago = fechaPago;
     }
 
-    public SedeBean getCliente() {
-        return bodega.getSede();
-    }
-
     public String getStatus() {
         return status;
     }
