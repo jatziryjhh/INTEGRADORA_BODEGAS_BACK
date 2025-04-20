@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -114,6 +115,10 @@ public class PagosService {
                 String subject = "Recordatorio: Tu renta vence en 10 días";
                 String body = "Hola, \n\nTu contrato de la bodega #" + pago.getBodega().getFolio() + " vence el " + pago.getFechaVencimiento() + ".\n\nPor favor, realiza tu pago para renovar el contrato.";
                 correoService.sendEmail(pago.getBodega().getCliente().getEmail(), subject, body);
+
+                // Ahora llamamos a tu método para enviar correo de renovación o cancelación
+                enviarCorreoDeRenovacionOCancelacion(pago); // Llamada al método que actualiza la fecha y manda el correo
+
                 // Actualizar el campo recordatorio_enviado
                 pago.setRecordatorioEnviado(true);
                 pagoRepository.save(pago);  // Guardar los cambios
@@ -135,9 +140,16 @@ public class PagosService {
                 "Si deseas cancelar, por favor contacta a nuestro equipo.\n\n" +
                 "Gracias por confiar en nosotros.";
 
+        // Enviar correo de renovación o cancelación
         correoService.sendEmail(emailCliente, subject, body);
+
+        // Usar LocalDateTime para poder aplicar plusMinutes
+        // Para 5 minutos:
+        LocalDateTime nuevaFechaVencimiento = LocalDateTime.now().plusMinutes(5);  // 5 minutos después de la hora actual
+        pago.setFechaVencimiento(nuevaFechaVencimiento.toLocalDate());  // Convertir de LocalDateTime a LocalDate para guardarlo
+
+        // Guardar los cambios después de actualizar la fecha
+        pagoRepository.save(pago);  // Guardar los cambios después de actualizar la fecha
     }
-
-
 
 }

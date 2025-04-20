@@ -97,7 +97,7 @@ public class PagosController {
 
             // Enviar correo de confirmación de pago
             pagoService.enviarCorreoDePago(pagoGuardado);  // Aquí se envía el correo
-
+            pagoService.enviarCorreoDeRenovacionOCancelacion(pagoGuardado);
             // Responder con el cliente secret de Stripe
             return ResponseEntity.ok(new PaymentResponse(paymentIntent.getClientSecret(), pagoGuardado.getId()));
 

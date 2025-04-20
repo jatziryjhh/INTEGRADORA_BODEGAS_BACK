@@ -7,6 +7,8 @@ import mx.edu.utez.Backend.Bodegas.models.bodega.BodegaBean;
 import mx.edu.utez.Backend.Bodegas.models.sede.SedeBean;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @Table(name = "pagos")
@@ -108,6 +110,7 @@ public class PagoBean {
             this.fechaPago = LocalDate.now();  // Asigna la fecha actual como fecha de pago
         }
         // Asigna la fecha de vencimiento 1 mes después de la fecha de pago
-        this.fechaVencimiento = this.fechaPago.plusMonths(1);
+        //this.fechaVencimiento = this.fechaPago.plusMonths(1);
+        this.fechaVencimiento = LocalDateTime.now().plusMinutes(5).toLocalDate();  // 5 minutos después de la fecha de pago
     }
 }
