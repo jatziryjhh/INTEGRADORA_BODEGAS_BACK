@@ -33,6 +33,28 @@ public class PagoBean {
     @Column(name = "status", nullable = false)
     private String status;
 
+    @Column(name="fecha_vencimiento", nullable = false)
+    private LocalDate fechaVencimiento;
+
+    @Column(name = "recordatorio_enviado", nullable = true)
+    private Boolean recordatorioEnviado=false;
+
+    public Boolean getRecordatorioEnviado() {
+        return recordatorioEnviado;
+    }
+
+    public void setRecordatorioEnviado(Boolean recordatorioEnviado) {
+        this.recordatorioEnviado = recordatorioEnviado;
+    }
+
+    public LocalDate getFechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    public void setFechaVencimiento(LocalDate fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
+    }
+
     public Long getId() {
         return id;
     }
@@ -79,5 +101,13 @@ public class PagoBean {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    @PrePersist
+    public void setFechaVencimiento() {
+        if (this.fechaPago == null) {
+            this.fechaPago = LocalDate.now();  // Asigna la fecha actual como fecha de pago
+        }
+        // Asigna la fecha de vencimiento 1 mes después de la fecha de pago
+        this.fechaVencimiento = this.fechaPago.plusMonths(1);
     }
 }

@@ -88,5 +88,6 @@ public class BodegasService {
         if(!STATUS_PATTERN.matcher(bodega.getStatus()).matches()){
             throw new IllegalArgumentException("El status de bodega no es válido");
         }
+
     }
 }
