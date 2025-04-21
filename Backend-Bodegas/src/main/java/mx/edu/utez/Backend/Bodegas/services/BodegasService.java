@@ -23,7 +23,7 @@ public class BodegasService {
     //REGEX patterns
     private static final Pattern TIPO_PATTERN = Pattern.compile("^(?! )[A-ZÁÉÍÓÚÑa-záéíóúñ]+(?: [A-ZÁÉÍÓÚÑa-záéíóúñ]+){0,49}$");
     private static final Pattern FOLIO_PATTERN = Pattern.compile("^[A-Z0-9]{5,10}$");
-    private static final Pattern PRECIO_PATTERN = Pattern.compile("^(?!\\s*$)\\d+(\\.\\d{1,2})?$");
+    private static final Pattern PRECIO_PATTERN = Pattern.compile("^(?!0+(\\.0{1,2})?$)\\d+(\\.\\d{1,2})?$");
     private static final Pattern TAMANO_PATTERN = Pattern.compile("^(?! )[A-ZÁÉÍÓÚÑa-záéíóúñ]+(?: [A-ZÁÉÍÓÚÑa-záéíóúñ]+){0,49}$");
     private static final Pattern EDIFICIO_PATTERN = Pattern.compile("^(?! )[A-ZÁÉÍÓÚÑa-záéíóúñ]+(?: [A-ZÁÉÍÓÚÑa-záéíóúñ]+){0,49}$");
     private static final Pattern STATUS_PATTERN=Pattern.compile("DISPONIBLE|RENTADA|POR VENCER|VENCIDA", Pattern.CASE_INSENSITIVE);

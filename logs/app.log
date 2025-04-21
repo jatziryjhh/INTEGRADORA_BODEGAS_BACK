@@ -1,0 +1,142 @@
+2025-04-21 00:01:29 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-21 00:03:01 [http-nio-8080-exec-10] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Jovanna Jatziry Hernández rol=ADMINISTRADOR ruta=/api/bodegas/ método=GET
+2025-04-21 00:03:02 [http-nio-8080-exec-7] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Jovanna Jatziry Hernández rol=ADMINISTRADOR ruta=/api/bodegas/ método=GET
+2025-04-21 00:03:46 [http-nio-8080-exec-3] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Jovanna Jatziry Hernández rol=ADMINISTRADOR ruta=/api/sedes/ método=GET
+2025-04-21 00:03:46 [http-nio-8080-exec-4] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Jovanna Jatziry Hernández rol=ADMINISTRADOR ruta=/api/sedes/ método=GET
+2025-04-21 00:09:16 [http-nio-8080-exec-10] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Jovanna Jatziry Hernández rol=ADMINISTRADOR ruta=/api/sedes/ método=GET
+2025-04-21 00:09:16 [http-nio-8080-exec-7] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Jovanna Jatziry Hernández rol=ADMINISTRADOR ruta=/api/sedes/ método=GET
+2025-04-21 00:12:58 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:12:58 [Thread-5] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:12:59 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-21 00:12:59 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-04-21 00:12:59 [restartedMain] INFO  m.e.u.B.B.BackendBodegasApplication - Starting BackendBodegasApplication using Java 17.0.8 with PID 16936 (C:\Users\jovan\Desktop\8\SEGURIDAD\NUEVO\INTEGRADORA_BODEGAS_BACK\Backend-Bodegas\target\classes started by jovan in C:\Users\jovan\Desktop\8\SEGURIDAD\NUEVO\INTEGRADORA_BODEGAS_BACK)
+2025-04-21 00:12:59 [restartedMain] INFO  m.e.u.B.B.BackendBodegasApplication - The following 1 profile is active: "prod"
+2025-04-21 00:13:00 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:13:00 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-21 00:13:00 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-21 00:13:00 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-21 00:13:00 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-21 00:13:00 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-21 00:13:00 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2025-04-21 00:13:00 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@586e1fec
+2025-04-21 00:13:00 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2025-04-21 00:13:00 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-21 00:13:00 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-21 00:13:01 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:13:01 [restartedMain] INFO  m.e.u.B.B.BackendBodegasApplication - Started BackendBodegasApplication in 1.795 seconds (process running for 883.567)
+2025-04-21 00:13:33 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-21 00:13:34 [http-nio-8080-exec-1] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Jovanna Jatziry Hernández rol=ADMINISTRADOR ruta=/api/sedes/ método=GET
+2025-04-21 00:13:34 [http-nio-8080-exec-2] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Jovanna Jatziry Hernández rol=ADMINISTRADOR ruta=/api/sedes/ método=GET
+2025-04-21 00:16:07 [http-nio-8080-exec-8] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/bodegas/ método=GET
+2025-04-21 00:16:07 [http-nio-8080-exec-5] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/bodegas/ método=GET
+2025-04-21 00:16:09 [http-nio-8080-exec-1] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:16:09 [http-nio-8080-exec-2] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:24:52 [http-nio-8080-exec-7] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:25:28 [http-nio-8080-exec-8] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:28:36 [http-nio-8080-exec-9] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:29:02 [http-nio-8080-exec-1] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:30:19 [http-nio-8080-exec-4] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:30:20 [http-nio-8080-exec-3] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:30:42 [http-nio-8080-exec-6] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:31:50 [http-nio-8080-exec-5] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:32:02 [http-nio-8080-exec-10] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:35:39 [http-nio-8080-exec-2] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:35:39 [http-nio-8080-exec-4] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:36:21 [http-nio-8080-exec-6] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:36:24 [http-nio-8080-exec-5] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:36:47 [http-nio-8080-exec-10] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:36:48 [http-nio-8080-exec-1] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:36:50 [http-nio-8080-exec-2] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:37:12 [http-nio-8080-exec-7] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:37:13 [http-nio-8080-exec-3] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:38:07 [http-nio-8080-exec-8] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:38:09 [http-nio-8080-exec-5] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:38:11 [http-nio-8080-exec-10] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/1 método=PUT
+2025-04-21 00:38:12 [http-nio-8080-exec-10] INFO  m.e.u.B.B.services.UsuariosService - Contraseña actualizada para usuario con ID: 1
+2025-04-21 00:38:16 [http-nio-8080-exec-1] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/1 método=PUT
+2025-04-21 00:38:16 [http-nio-8080-exec-1] INFO  m.e.u.B.B.services.UsuariosService - Contraseña actualizada para usuario con ID: 1
+2025-04-21 00:38:19 [http-nio-8080-exec-4] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/2 método=PUT
+2025-04-21 00:38:20 [http-nio-8080-exec-4] INFO  m.e.u.B.B.services.UsuariosService - Contraseña actualizada para usuario con ID: 2
+2025-04-21 00:40:00 [http-nio-8080-exec-3] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:40:04 [http-nio-8080-exec-6] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:40:09 [http-nio-8080-exec-5] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:40:16 [http-nio-8080-exec-9] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:40:24 [http-nio-8080-exec-1] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:40:32 [http-nio-8080-exec-4] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:40:33 [http-nio-8080-exec-7] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:40:43 [http-nio-8080-exec-6] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:40:48 [http-nio-8080-exec-5] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:40:48 [http-nio-8080-exec-9] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:40:52 [http-nio-8080-exec-1] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/4 método=PUT
+2025-04-21 00:40:53 [http-nio-8080-exec-1] INFO  m.e.u.B.B.services.UsuariosService - Contraseña actualizada para usuario con ID: 4
+2025-04-21 00:41:13 [http-nio-8080-exec-7] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/3 método=PUT
+2025-04-21 00:41:13 [http-nio-8080-exec-7] INFO  m.e.u.B.B.services.UsuariosService - Contraseña actualizada para usuario con ID: 3
+2025-04-21 00:43:26 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:43:26 [Thread-7] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:43:26 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2025-04-21 00:43:26 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2025-04-21 00:43:27 [restartedMain] INFO  m.e.u.B.B.BackendBodegasApplication - Starting BackendBodegasApplication using Java 17.0.8 with PID 16936 (C:\Users\jovan\Desktop\8\SEGURIDAD\NUEVO\INTEGRADORA_BODEGAS_BACK\Backend-Bodegas\target\classes started by jovan in C:\Users\jovan\Desktop\8\SEGURIDAD\NUEVO\INTEGRADORA_BODEGAS_BACK)
+2025-04-21 00:43:27 [restartedMain] INFO  m.e.u.B.B.BackendBodegasApplication - The following 1 profile is active: "prod"
+2025-04-21 00:43:28 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:43:28 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-21 00:43:28 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-21 00:43:28 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-21 00:43:28 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-21 00:43:28 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-21 00:43:28 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2025-04-21 00:43:28 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ea1b6d3
+2025-04-21 00:43:28 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2025-04-21 00:43:28 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-21 00:43:29 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-21 00:43:29 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:43:29 [restartedMain] INFO  m.e.u.B.B.BackendBodegasApplication - Started BackendBodegasApplication in 1.873 seconds (process running for 2711.554)
+2025-04-21 00:43:45 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-21 00:43:45 [http-nio-8080-exec-2] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:44:17 [http-nio-8080-exec-6] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:44:17 [http-nio-8080-exec-7] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/ método=GET
+2025-04-21 00:44:40 [http-nio-8080-exec-5] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/3 método=PUT
+2025-04-21 00:44:40 [http-nio-8080-exec-5] INFO  m.e.u.B.B.services.UsuariosService - Contraseña actualizada para usuario con ID: 3
+2025-04-21 00:44:45 [http-nio-8080-exec-4] INFO  m.e.u.B.B.m.b.BitacoraInterceptor - Bitácora registrada: usuario=Juan Diego Hernandez rol=SUPERADMINISTRADOR ruta=/api/usuarios/3 método=PUT
+2025-04-21 00:44:45 [http-nio-8080-exec-4] INFO  m.e.u.B.B.services.UsuariosService - Contraseña actualizada para usuario con ID: 3
+2025-04-21 00:45:19 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:45:20 [Thread-11] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:45:20 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2025-04-21 00:45:20 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2025-04-21 00:45:22 [restartedMain] INFO  m.e.u.B.B.BackendBodegasApplication - Starting BackendBodegasApplication using Java 17.0.8 with PID 16936 (C:\Users\jovan\Desktop\8\SEGURIDAD\NUEVO\INTEGRADORA_BODEGAS_BACK\Backend-Bodegas\target\classes started by jovan in C:\Users\jovan\Desktop\8\SEGURIDAD\NUEVO\INTEGRADORA_BODEGAS_BACK)
+2025-04-21 00:45:22 [restartedMain] INFO  m.e.u.B.B.BackendBodegasApplication - The following 1 profile is active: "prod"
+2025-04-21 00:45:23 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:45:23 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-21 00:45:23 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-21 00:45:23 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-21 00:45:23 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-21 00:45:23 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-04-21 00:45:23 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2025-04-21 00:45:24 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3175ef1a
+2025-04-21 00:45:24 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2025-04-21 00:45:24 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-4)']
+	Database driver: undefined/unknown
+	Database version: 8.0.34
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-21 00:45:24 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-21 00:45:25 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-21 00:45:25 [restartedMain] INFO  m.e.u.B.B.BackendBodegasApplication - Started BackendBodegasApplication in 3.447 seconds (process running for 2827.402)
+2025-04-21 00:45:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2025-04-21 00:45:50 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
